@@ -21,6 +21,79 @@
 </head>
 
 <body>
+  <img src="assets/images/bg-desktop-dark.jpg" alt="">
+  <main class="main-container">
+    <div class="title-theme-wrapper">
+      <h1 class="title">TODO</h1>
+      <div class="theme">
+        <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+          <path fill="#FFF" fill-rule="evenodd"
+            d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z" />
+        </svg>
+      </div>
+    </div>
+    <form class="add-item" action="">
+      <div class="submit-new-item">
+        <button class="circle-btn submit-item-btn"></button>
+      </div>
+      <div class="add-item-field-wrapper">
+        <input type="text" class="add-item-field" placeholder="Create a new todo...">
+      </div>
+    </form>
+    <div class="items-status-wrapper">
+      <div class="items-wrapper">
+        <div class="item complete-item">
+          <span class="circle-btn item-check"></span>
+          <span class="item-text">Complete online JavaScript course</span>
+        </div>
+        <div class="item">
+          <span class="circle-btn item-check"></span>
+          <span class="item-text">Jog around the park 3x</span>
+        </div>
+        <div class="item">
+          <span class="circle-btn item-check"></span>
+          <span class="item-text">Jog around the park 3x</span>
+        </div>
+        <div class="item complete-item">
+          <span class="circle-btn item-check"></span>
+          <span class="item-text">Complete online JavaScript course</span>
+        </div>
+        <div class="item">
+          <span class="circle-btn item-check"></span>
+          <span class="item-text">Jog around the park 3x</span>
+        </div>
+        <div class="item">
+          <span class="circle-btn item-check"></span>
+          <span class="item-text">Jog around the park 3x</span>
+        </div>
+      </div>
+      <div class="status-bar">
+        <div class="narrow-text items-remaining">5 items left</div>
+        <div class="filter-items">
+          <button class="filter-item-btn active">All</button>
+          <button class="filter-item-btn">Active</button>
+          <button class="filter-item-btn">Completed</button>
+        </div>
+        <button class="narrow-text clear-completed-items">Clear Completed</button>
+      </div>
+
+      <!-- status-bar layout for mobiles -->
+      <!-- <div class="status-bar">
+        <div class="narrow-text items-remaining">5 items left</div>
+        <button class="narrow-text clear-completed-items">Clear Completed</button>
+      </div> -->
+
+    </div>
+
+    <!-- filter-itmes layout for mobiles -->
+    <!-- <div class="filter-items">
+      <button class="filter-item-btn active">All</button>
+      <button class="filter-item-btn">Active</button>
+      <button class="filter-item-btn">Completed</button>
+    </div> -->
+    <h4 class="reorder-items-text">Drag and drop to reorder list</h4>
+  </main>
+
 </body>
 
 </html>

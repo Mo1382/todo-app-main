@@ -1,3 +1,33 @@
 // Color variables
 
+// Primary
+$p-primary-bright-blue: #3a7bfd;
+$p-primary-gradient: linear-gradient(#57ddff, #c058f3);
+
+// Neutral color variables for dark theme
+$n-dark-dark-grayish-blue: #777a92;
+$n-dark-light-grayish-blue: #cacde8;
+$n-dark-very-dark-blue: #161722;
+$n-dark-very-dark-desaturated-blue: #25273c;
+$n-dark-very-dark-grayish-blue-1: #4d5066;
+$n-dark-very-dark-grayish-blue-2: #393a4c;
+
+// Neutral color variables for light theme
+$n-light-dark-grayish-blue: #9394a5;
+$n-light-light-grayish-blue: #d2d3db;
+$n-light-very-light-gray: #fafafa;
+$n-light-very-dark-grayish-blue: #4d5066;
+$n-light-very-light-grayish-blue: #e4e5f1;
+
 // Font variables
+$regular-font-weight: 400;
+$bold-font-weight: 700;
+
+// Box-shadow variables
+// Desktop shadows
+$desktop-light-shadow: 0px 12px 50px 2px rgba(0, 0, 0, 0.1);
+$desktop-dark-shadow: 0px 12px 50px 2px rgba(0, 0, 0, 0.2);
+
+// Mobile shadows
+$mobile-light-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
+$mobile-dark-shadow: 0px 12px 60px 4px rgba(0, 0, 0, 0.2);
