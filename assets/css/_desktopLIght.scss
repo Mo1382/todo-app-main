@@ -1,0 +1,52 @@
+.light {
+  background-color: $n-light-very-light-gray;
+
+  // styles for side texts in status-bar and reorder-items-text
+  .narrow-text {
+    color: $n-light-dark-grayish-blue;
+  }
+
+  // circles in add-item and items elements.
+  .circle {
+    border: 1px solid $n-light-very-light-grayish-blue;
+  }
+
+  .main-container {
+    .add-item {
+      background-color: $n-light-very-light-gray;
+      .add-item-field {
+        &::placeholder {
+          color: $n-light-dark-grayish-blue;
+        }
+      }
+      box-shadow: $desktop-light-shadow;
+    }
+    .items-status-wrapper {
+      box-shadow: $desktop-light-shadow;
+      background-color: $n-light-light-grayish-blue;
+      .items-wrapper {
+        .item {
+          background-color: $n-light-very-light-gray;
+          border-bottom-color: $n-light-very-light-grayish-blue;
+          .item-text {
+            color: $n-light-very-dark-grayish-blue;
+          }
+          &.complete-item {
+            .item-text {
+              color: $n-light-light-grayish-blue;
+            }
+          }
+        }
+      }
+      .status-bar {
+        background-color: $n-light-very-light-gray;
+
+        .filter-items {
+          .filter-item-btn {
+            color: $n-light-dark-grayish-blue;
+          }
+        }
+      }
+    }
+  }
+}

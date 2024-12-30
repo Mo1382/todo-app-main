@@ -1,0 +1,158 @@
+// styles for side texts in status-bar and reorder-items-text
+.narrow-text {
+  font-size: 14px;
+  font-weight: $regular-font-weight;
+  color: $n-dark-very-dark-grayish-blue-1;
+}
+
+// circles in add-item and items elements.
+.circle-wrapper {
+  cursor: pointer;
+  padding: 4px;
+  line-height: 0;
+  background-color: transparent;
+  .circle {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid $n-dark-very-dark-grayish-blue-2;
+    background-color: transparent;
+  }
+}
+
+body {
+  background-color: $n-dark-very-dark-blue;
+}
+.wallpaper-bg {
+  width: 100%;
+  height: 300px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.main-container {
+  max-width: 538px;
+  margin: 78px auto 48px;
+  .title-theme-wrapper {
+    @include flex-items-sides;
+    .title {
+      font-size: 44px;
+      font-weight: $bold-font-weight;
+      letter-spacing: 11.88px;
+      color: #fff;
+    }
+    .theme {
+      cursor: pointer;
+      padding: 4px;
+      .theme-icon {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+  .add-item {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    border-radius: 6px;
+    background-color: $n-dark-very-dark-desaturated-blue;
+    margin: 44px 0 24px;
+    .add-item-field {
+      margin-left: 20px;
+      flex-grow: 1;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      &::placeholder {
+        font-size: 16px;
+        font-weight: $bold-font-weight;
+        color: $n-dark-dark-grayish-blue;
+      }
+    }
+    box-shadow: $desktop-dark-shadow;
+  }
+  .items-status-wrapper {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: $desktop-dark-shadow;
+    background-color: $n-dark-very-dark-desaturated-blue;
+    .items-wrapper {
+      .item {
+        background-color: $n-dark-very-dark-desaturated-blue;
+        display: flex;
+        align-items: center;
+        height: 64px;
+        padding: 0 24px;
+        border-bottom: 1px solid $n-dark-very-dark-grayish-blue-2;
+        .item-text {
+          font-size: 18px;
+          font-weight: $regular-font-weight;
+          color: $n-dark-light-grayish-blue;
+          margin-left: 20px;
+        }
+        &.complete-item {
+          .circle {
+            border: none;
+            background: $p-primary-gradient;
+            &::after {
+              content: "";
+              background-image: url("../images/icon-check.svg");
+              background-repeat: no-repeat;
+              display: inline-block;
+              width: 100%;
+              height: 100%;
+              background-position: center;
+            }
+          }
+          .item-text {
+            text-decoration: line-through 1px;
+            color: $n-dark-very-dark-grayish-blue-1;
+          }
+        }
+      }
+    }
+    .status-bar {
+      @include flex-items-sides;
+      height: 50px;
+      background-color: $n-dark-very-dark-desaturated-blue;
+      padding: 0 24px;
+      position: relative;
+
+      .filter-items {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        .filter-item-btn {
+          font-size: 14px;
+          font-weight: $bold-font-weight;
+          color: $n-dark-very-dark-grayish-blue-1;
+          background-color: transparent;
+          cursor: pointer;
+          padding: 4px;
+          &:nth-child(2) {
+            margin: 0 12px;
+          }
+          &.active {
+            color: $p-primary-bright-blue !important;
+          }
+        }
+      }
+      .clear-completed-items {
+        cursor: pointer;
+        padding: 4px;
+        background-color: transparent;
+      }
+    }
+  }
+  .reorder-items-text {
+    text-align: center;
+    margin-top: 44px;
+  }
+}

@@ -20,8 +20,10 @@
   <title>Todo app</title>
 </head>
 
-<body>
-  <img src="assets/images/bg-desktop-dark.jpg" alt="">
+<body class="light">
+  <!-- <img class="wallpaper-bg" src="assets/images/bg-desktop-dark.jpg" alt=""> -->
+  <img class="wallpaper-bg" src="assets/images/bg-desktop-light.jpg" alt="">
+
   <main class="main-container">
     <div class="title-theme-wrapper">
       <h1 class="title">TODO</h1>
@@ -33,37 +35,48 @@
       </div>
     </div>
     <form class="add-item" action="">
-      <div class="submit-new-item">
-        <button class="circle-btn submit-item-btn"></button>
-      </div>
-      <div class="add-item-field-wrapper">
-        <input type="text" class="add-item-field" placeholder="Create a new todo...">
-      </div>
+      <button type="submit" class="circle-wrapper submit-new-item">
+        <span class="circle"></span>
+      </button>
+      <input type="text" class="add-item-field" placeholder="Create a new todo...">
+
     </form>
     <div class="items-status-wrapper">
       <div class="items-wrapper">
         <div class="item complete-item">
-          <span class="circle-btn item-check"></span>
+          <button class="circle-wrapper check-item">
+            <span class="circle"></span>
+          </button>
           <span class="item-text">Complete online JavaScript course</span>
         </div>
         <div class="item">
-          <span class="circle-btn item-check"></span>
+          <button class="circle-wrapper check-item">
+            <span class="circle"></span>
+          </button>
           <span class="item-text">Jog around the park 3x</span>
         </div>
         <div class="item">
-          <span class="circle-btn item-check"></span>
+          <button class="circle-wrapper check-item">
+            <span class="circle"></span>
+          </button>
           <span class="item-text">Jog around the park 3x</span>
         </div>
         <div class="item complete-item">
-          <span class="circle-btn item-check"></span>
+          <button class="circle-wrapper check-item">
+            <span class="circle"></span>
+          </button>
           <span class="item-text">Complete online JavaScript course</span>
         </div>
         <div class="item">
-          <span class="circle-btn item-check"></span>
+          <button class="circle-wrapper check-item">
+            <span class="circle"></span>
+          </button>
           <span class="item-text">Jog around the park 3x</span>
         </div>
         <div class="item">
-          <span class="circle-btn item-check"></span>
+          <button class="circle-wrapper check-item">
+            <span class="circle"></span>
+          </button>
           <span class="item-text">Jog around the park 3x</span>
         </div>
       </div>
@@ -91,7 +104,7 @@
       <button class="filter-item-btn">Active</button>
       <button class="filter-item-btn">Completed</button>
     </div> -->
-    <h4 class="reorder-items-text">Drag and drop to reorder list</h4>
+    <h4 class="narrow-text reorder-items-text">Drag and drop to reorder list</h4>
   </main>
 
 </body>
