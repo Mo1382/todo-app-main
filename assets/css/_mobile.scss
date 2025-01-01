@@ -1,0 +1,135 @@
+@media (max-width: 586px) {
+  // styles for side texts in status-bar and reorder-items-text
+  .narrow-text {
+    font-size: 12px;
+  }
+
+  // circles in add-item and items elements.
+  .circle-wrapper {
+    .circle {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .wallpaper-bg {
+    height: 200px;
+    background-image: url("../images/bg-mobile-dark.jpg");
+  }
+
+  .main-container {
+    // max-width: 327px;
+    // margin: 48px auto 32px;
+    margin: 48px 24px 32px;
+    .title-theme-wrapper {
+      .title {
+        font-size: 28px;
+
+        letter-spacing: 8.96px;
+      }
+      .theme {
+        .theme-icon {
+          // make svg width and height = 22px with scale
+          transform: scale(calc(22 / 26));
+        }
+      }
+    }
+    .add-item {
+      height: 48px;
+      padding: 0 20px;
+      margin: 36px 0 16px;
+      .add-item-field {
+        margin-left: 12px;
+        font-size: 12px;
+        &::placeholder {
+          font-size: 12px;
+        }
+      }
+      box-shadow: $mobile-dark-shadow;
+    }
+    .items-status-wrapper {
+      box-shadow: $mobile-dark-shadow;
+
+      .items-wrapper {
+        .item {
+          height: 54px;
+          padding: 0 20px;
+          .item-text {
+            font-size: 12px;
+            margin-left: 12px;
+          }
+          &.complete-item {
+            .circle {
+              &::after {
+                background-size: 8.5px 7px;
+              }
+            }
+            .item-text {
+              text-decoration: line-through 1px;
+              color: $n-dark-very-dark-grayish-blue-1;
+            }
+          }
+          .close-icon {
+            opacity: 1;
+            transform: scale(1);
+            svg {
+              transform: scale(calc(12 / 18));
+            }
+          }
+
+          &.active-item .circle {
+            &::before {
+              width: 18px;
+              height: 18px;
+            }
+          }
+        }
+      }
+      .status-bar {
+        padding: 0 20px;
+
+        .clear-completed-items {
+          cursor: pointer;
+          padding: 4px;
+          background-color: transparent;
+          transition: color 0.2s ease-in-out;
+          &:hover {
+            color: $n-light-very-light-grayish-blue;
+          }
+        }
+      }
+    }
+    .filter-items {
+      position: static;
+      width: 100%;
+      height: 48px;
+      background-color: $n-dark-very-dark-desaturated-blue;
+      transform: translateX(0);
+      @include flex-items-center;
+      box-shadow: $mobile-dark-shadow;
+      margin-top: 16px;
+      border-radius: 6px;
+      .filter-item-btn {
+        &:nth-child(2) {
+          margin: 0 20px;
+        }
+      }
+    }
+  }
+}
+
+// Styles for light theme in mobile
+.light {
+  .wallpaper-bg {
+    background-image: url("../images/bg-mobile-light.jpg");
+  }
+  .add-item {
+    box-shadow: $mobile-light-shadow;
+  }
+  .items-status-wrapper {
+    box-shadow: $mobile-light-shadow;
+  }
+  .filter-items {
+    background-color: $n-light-very-light-gray;
+    box-shadow: $mobile-light-shadow;
+  }
+}

@@ -10,11 +10,14 @@
   .circle {
     border: 1px solid $n-light-very-light-grayish-blue;
   }
-
+  .wallpaper-bg {
+    background-image: url("../images/bg-desktop-light.jpg");
+  }
   .main-container {
     .add-item {
       background-color: $n-light-very-light-gray;
       .add-item-field {
+        color: $n-light-very-dark-grayish-blue;
         &::placeholder {
           color: $n-light-dark-grayish-blue;
         }
@@ -36,15 +39,26 @@
               color: $n-light-light-grayish-blue;
             }
           }
+          &.active-item .circle::before {
+            background: $n-light-very-light-gray;
+          }
         }
       }
       .status-bar {
         background-color: $n-light-very-light-gray;
 
-        .filter-items {
-          .filter-item-btn {
-            color: $n-light-dark-grayish-blue;
+        .clear-completed-items {
+          &:hover {
+            color: $n-light-very-dark-grayish-blue;
           }
+        }
+      }
+    }
+    .filter-items {
+      .filter-item-btn {
+        color: $n-light-dark-grayish-blue;
+        &:hover {
+          color: $n-light-very-dark-grayish-blue;
         }
       }
     }

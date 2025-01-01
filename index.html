@@ -20,9 +20,11 @@
   <title>Todo app</title>
 </head>
 
-<body class="light">
+<!-- <body class="light"> -->
+
+<body>
   <!-- <img class="wallpaper-bg" src="assets/images/bg-desktop-dark.jpg" alt=""> -->
-  <img class="wallpaper-bg" src="assets/images/bg-desktop-light.jpg" alt="">
+  <div class="wallpaper-bg"></div>
 
   <main class="main-container">
     <div class="title-theme-wrapper">
@@ -48,39 +50,51 @@
             <span class="circle"></span>
           </button>
           <span class="item-text">Complete online JavaScript course</span>
+          <div class="close-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+              <path fill="#494C6B" fill-rule="evenodd"
+                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z" />
+            </svg>
+          </div>
         </div>
-        <div class="item">
+        <div class="item active-item">
           <button class="circle-wrapper check-item">
             <span class="circle"></span>
           </button>
           <span class="item-text">Jog around the park 3x</span>
-        </div>
-        <div class="item">
-          <button class="circle-wrapper check-item">
-            <span class="circle"></span>
-          </button>
-          <span class="item-text">Jog around the park 3x</span>
+          <div class="close-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+              <path fill="#494C6B" fill-rule="evenodd"
+                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z" />
+            </svg>
+          </div>
         </div>
         <div class="item complete-item">
           <button class="circle-wrapper check-item">
             <span class="circle"></span>
           </button>
           <span class="item-text">Complete online JavaScript course</span>
+          <div class="close-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+              <path fill="#494C6B" fill-rule="evenodd"
+                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z" />
+            </svg>
+          </div>
         </div>
-        <div class="item">
+        <div class="item active-item">
           <button class="circle-wrapper check-item">
             <span class="circle"></span>
           </button>
           <span class="item-text">Jog around the park 3x</span>
-        </div>
-        <div class="item">
-          <button class="circle-wrapper check-item">
-            <span class="circle"></span>
-          </button>
-          <span class="item-text">Jog around the park 3x</span>
+          <div class="close-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+              <path fill="#494C6B" fill-rule="evenodd"
+                d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z" />
+            </svg>
+          </div>
         </div>
       </div>
-      <div class="status-bar">
+      <!-- <div class="status-bar">
         <div class="narrow-text items-remaining">5 items left</div>
         <div class="filter-items">
           <button class="filter-item-btn active">All</button>
@@ -88,22 +102,22 @@
           <button class="filter-item-btn">Completed</button>
         </div>
         <button class="narrow-text clear-completed-items">Clear Completed</button>
-      </div>
+      </div> -->
 
       <!-- status-bar layout for mobiles -->
-      <!-- <div class="status-bar">
+      <div class="status-bar">
         <div class="narrow-text items-remaining">5 items left</div>
         <button class="narrow-text clear-completed-items">Clear Completed</button>
-      </div> -->
+      </div>
 
     </div>
 
     <!-- filter-itmes layout for mobiles -->
-    <!-- <div class="filter-items">
+    <div class="filter-items">
       <button class="filter-item-btn active">All</button>
       <button class="filter-item-btn">Active</button>
       <button class="filter-item-btn">Completed</button>
-    </div> -->
+    </div>
     <h4 class="narrow-text reorder-items-text">Drag and drop to reorder list</h4>
   </main>
 
