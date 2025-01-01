@@ -405,21 +405,20 @@ body {
   .main-container .filter-items .filter-item-btn:nth-child(2) {
     margin: 0 20px;
   }
+  .light .wallpaper-bg {
+    background-image: url("../images/bg-mobile-light.jpg");
+  }
+  .light .add-item {
+    box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
+  }
+  .light .items-status-wrapper {
+    box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
+  }
+  .light .filter-items {
+    background-color: #fafafa;
+    box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
+  }
 }
-.light .wallpaper-bg {
-  background-image: url("../images/bg-mobile-light.jpg");
-}
-.light .add-item {
-  box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
-}
-.light .items-status-wrapper {
-  box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
-}
-.light .filter-items {
-  background-color: #fafafa;
-  box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
-}
-
 @media (max-width: 586px) {
   .narrow-text {
     font-size: 12px;
@@ -516,17 +515,17 @@ body {
   .main-container .filter-items .filter-item-btn:nth-child(2) {
     margin: 0 20px;
   }
-}
-.light .wallpaper-bg {
-  background-image: url("../images/bg-mobile-light.jpg");
-}
-.light .add-item {
-  box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
-}
-.light .items-status-wrapper {
-  box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
-}
-.light .filter-items {
-  background-color: #fafafa;
-  box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
+  .light .wallpaper-bg {
+    background-image: url("../images/bg-mobile-light.jpg");
+  }
+  .light .add-item {
+    box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
+  }
+  .light .items-status-wrapper {
+    box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
+  }
+  .light .filter-items {
+    background-color: #fafafa;
+    box-shadow: 0px 12px 50px 4px rgba(0, 0, 0, 0.12);
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -115,21 +115,20 @@
       }
     }
   }
-}
-
-// Styles for light theme in mobile
-.light {
-  .wallpaper-bg {
-    background-image: url("../images/bg-mobile-light.jpg");
-  }
-  .add-item {
-    box-shadow: $mobile-light-shadow;
-  }
-  .items-status-wrapper {
-    box-shadow: $mobile-light-shadow;
-  }
-  .filter-items {
-    background-color: $n-light-very-light-gray;
-    box-shadow: $mobile-light-shadow;
+  // Styles for light theme in mobile
+  .light {
+    .wallpaper-bg {
+      background-image: url("../images/bg-mobile-light.jpg");
+    }
+    .add-item {
+      box-shadow: $mobile-light-shadow;
+    }
+    .items-status-wrapper {
+      box-shadow: $mobile-light-shadow;
+    }
+    .filter-items {
+      background-color: $n-light-very-light-gray;
+      box-shadow: $mobile-light-shadow;
+    }
   }
 }
