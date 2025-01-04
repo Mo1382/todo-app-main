@@ -13,6 +13,8 @@ const widnowWidth = window.innerWidth;
 
 let isScreenDesktop = widnowWidth > 586;
 
+let dragged = {};
+
 // Functions
 /**
  * Saves the provided data to the local storage under the key "appData".
@@ -229,7 +231,7 @@ const renderTodo = function (todo, elToRender) {
   const todoHTML = `
         <div class="item ${
           todo.isCompleted ? "complete-item" : "active-item"
-        }" data-id="${todo.id}">
+        }" data-id="${todo.id}" draggable="true">
           <button class="circle-wrapper check-item">
             <span class="circle"></span>
           </button>
@@ -254,6 +256,26 @@ const renderTodo = function (todo, elToRender) {
  */
 const renderTodos = function (todos, elToRender) {
   todos.forEach(todo => renderTodo(todo, elToRender));
+};
+
+/**
+ * Re-renders the todo items based on the active filter button.
+ *
+ * @param {Array} todos - The list of todo items.
+ * @param {Array} filterBtns - The list of filter buttons.
+ */
+const reRenderTodos = function (todos, filterBtns, itemsWrapperEl) {
+  const activeBtn = filterBtns.find(btn => btn.classList.contains("active"));
+
+  const activeTodos = getActiveTodos(todos);
+  const completedTodos = getCompletedTodos(todos);
+
+  itemsWrapperEl.innerHTML = "";
+
+  if (activeBtn.id === "all-btn") renderTodos(todos, itemsWrapperEl);
+  if (activeBtn.id === "active-btn") renderTodos(activeTodos, itemsWrapperEl);
+  if (activeBtn.id === "completed-btn")
+    renderTodos(completedTodos, itemsWrapperEl);
 };
 
 const init = function (todos) {
@@ -281,6 +303,7 @@ const allBtn = document.querySelector("#all-btn");
 const activeBtn = document.querySelector("#active-btn");
 const completedBtn = document.querySelector("#completed-btn");
 const filterBtns = [...document.querySelectorAll(".filter-item-btn")];
+const clearCompletedBtn = document.querySelector(".clear-completed-items");
 
 // Event listeners
 // Change layout when screen switches to desktop/screen mode
@@ -391,7 +414,72 @@ activeBtn.addEventListener("click", function (e) {
 // Show completed todos when "Completed" button is clicked
 completedBtn.addEventListener("click", function (e) {
   const completedBtn = e.target;
-  const completedToods = getCompletedTodos(appState.todos);
+  const completedTodos = getCompletedTodos(appState.todos);
 
-  changeActiveTab(completedBtn, filterBtns, itemsWrapperEl, completedToods);
+  changeActiveTab(completedBtn, filterBtns, itemsWrapperEl, completedTodos);
+});
+
+// Clear completed items when "Clear Completed" button is clicked
+clearCompletedBtn.addEventListener("click", function (e) {
+  const completedItemEls = [...document.querySelectorAll(".completed-item")];
+  const completedTodos = getCompletedTodos(appState.todos);
+
+  completedItemEls.forEach(el => el.remove());
+
+  completedTodos.forEach(todo => removeObj(appState.todos, todo));
+
+  reRenderTodos(appState.todos, filterBtns, itemsWrapperEl);
+
+  saveToLocalStorage(appState);
+});
+
+// Set dragged item info global for next events
+itemsWrapperEl.addEventListener("dragstart", function (e) {
+  // Matching Strategy
+  if (!e.target.closest(".item")) return;
+
+  const draggedEl = e.target.closest(".item");
+
+  dragged.el = draggedEl;
+  dragged.obj = getObjFromEl(appState.todos, draggedEl);
+  dragged.yCoords = draggedEl.getBoundingClientRect().y;
+});
+
+// Allow to drop the dragged item on todo list
+itemsWrapperEl.addEventListener("dragover", function (e) {
+  // Matching Strategy
+  if (!e.target.closest(".item")) return;
+
+  e.preventDefault();
+});
+
+// Reorder todo items when a dragged item is dropped
+itemsWrapperEl.addEventListener("drop", function (e) {
+  // Matching Strategy
+  if (!e.target.closest(".item")) return;
+
+  const droppedEl = e.target.closest(".item");
+
+  const todos = appState.todos;
+  const { el: draggedEl, obj: draggedObj, yCoords: draggedYCoords } = dragged;
+  const droppedObj = getObjFromEl(todos, droppedEl);
+  const droppedYCoords = droppedEl.getBoundingClientRect().y;
+
+  const draggedObjIndex = todos.indexOf(draggedObj);
+  const droppedObjIndex = todos.indexOf(droppedObj);
+
+  // Remove dragged object from todos to reinsert it in the new position
+  todos.splice(draggedObjIndex, 1);
+
+  if (draggedYCoords < droppedYCoords) {
+    // Insert dragged el/object after the dropped el/object
+    droppedEl.after(draggedEl);
+    todos.splice(droppedObjIndex + 1, 0, draggedObj);
+  } else {
+    // Insert dragged el/object before the dropped el/object
+    droppedEl.before(draggedEl);
+    todos.splice(droppedObjIndex, 0, draggedObj);
+  }
+
+  saveToLocalStorage(appState);
 });
