@@ -13,6 +13,7 @@ const widnowWidth = window.innerWidth;
 
 let isScreenDesktop = widnowWidth > 586;
 
+// Saves dragged data for drop event handler
 let dragged = {};
 
 // Functions
@@ -278,6 +279,54 @@ const reRenderTodos = function (todos, filterBtns, itemsWrapperEl) {
     renderTodos(completedTodos, itemsWrapperEl);
 };
 
+/**
+ * Reorders items in the todos array based on the dragged and dropped elements.
+ *
+ * @param {Array} todos - The array of todo items.
+ * @param {Object} draggedInfo - Information about the dragged element.
+ * @param {HTMLElement} draggedInfo.el - The dragged HTML element.
+ * @param {Object} draggedInfo.obj - The dragged todo object.
+ * @param {number} draggedInfo.yCoords - The Y coordinates of the dragged element.
+ * @param {Object} droppedInfo - Information about the dropped element.
+ * @param {HTMLElement} droppedInfo.el - The dropped HTML element.
+ * @param {Object} droppedInfo.obj - The dropped todo object.
+ * @param {number} droppedInfo.yCoords - The Y coordinates of the dropped element.
+ */
+const reorderItems = function (todos, draggedInfo, droppedInfo) {
+  const {
+    el: draggedEl,
+    obj: draggedObj,
+    yCoords: draggedYCoords,
+  } = draggedInfo;
+
+  const {
+    el: droppedEl,
+    obj: droppedObj,
+    yCoords: droppedYCoords,
+  } = droppedInfo;
+
+  const draggedObjIndex = todos.indexOf(draggedObj);
+  const droppedObjIndex = todos.indexOf(droppedObj);
+
+  // Remove dragged object from todos to reinsert it in the new position
+  todos.splice(draggedObjIndex, 1);
+
+  if (draggedYCoords < droppedYCoords) {
+    // Insert dragged el/object after the dropped el/object
+    droppedEl.after(draggedEl);
+    todos.splice(droppedObjIndex + 1, 0, draggedObj);
+  } else {
+    // Insert dragged el/object before the dropped el/object
+    droppedEl.before(draggedEl);
+    todos.splice(droppedObjIndex, 0, draggedObj);
+  }
+};
+
+/**
+ * Initializes the application by rendering the initial HTML and todos.
+ *
+ * @param {Array} todos - An array of todo items to be rendered.
+ */
 const init = function (todos) {
   renederInitHTML(bodyEl);
 
@@ -460,26 +509,13 @@ itemsWrapperEl.addEventListener("drop", function (e) {
 
   const droppedEl = e.target.closest(".item");
 
-  const todos = appState.todos;
-  const { el: draggedEl, obj: draggedObj, yCoords: draggedYCoords } = dragged;
-  const droppedObj = getObjFromEl(todos, droppedEl);
-  const droppedYCoords = droppedEl.getBoundingClientRect().y;
+  const dropped = {
+    el: droppedEl,
+    obj: getObjFromEl(appState.todos, droppedEl),
+    yCoords: droppedEl.getBoundingClientRect().y,
+  };
 
-  const draggedObjIndex = todos.indexOf(draggedObj);
-  const droppedObjIndex = todos.indexOf(droppedObj);
-
-  // Remove dragged object from todos to reinsert it in the new position
-  todos.splice(draggedObjIndex, 1);
-
-  if (draggedYCoords < droppedYCoords) {
-    // Insert dragged el/object after the dropped el/object
-    droppedEl.after(draggedEl);
-    todos.splice(droppedObjIndex + 1, 0, draggedObj);
-  } else {
-    // Insert dragged el/object before the dropped el/object
-    droppedEl.before(draggedEl);
-    todos.splice(droppedObjIndex, 0, draggedObj);
-  }
+  reorderItems(appState.todos, dragged, dropped);
 
   saveToLocalStorage(appState);
 });
